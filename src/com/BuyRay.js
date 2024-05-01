@@ -15,7 +15,7 @@ const BuyRay = ({ provider, preRay }) => {
             if(!isNaN(amount) && amount > 0) {
                 let adjust_amount = amount * (10 ** 18);
                 console.log(`Adjusted Amount: ${adjust_amount}`);
-                let action = await preRay.connect(signer).buyRay({value: adjust_amount});
+                let action = await preRay.connect(signer).buyRay({value: BigInt(adjust_amount)});
                 await action.wait();
                 
             }else {
